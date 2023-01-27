@@ -1,0 +1,8 @@
+version: '3'
+services:
+  nfttv-apis:
+    image: 'nfttv_apis:latest'
+    ports:
+      - 8080:8080
+    environment:
+      - SPRING_DATA_MONGODB_URI=mongodb://admin:bas1cPa22@host.docker.internal:27017/nft-cache

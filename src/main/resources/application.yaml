@@ -1,0 +1,26 @@
+
+server:
+  servlet:
+    context-path: '/api'
+
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://admin:bas1cPa22@localhost:27017/
+      database: nft-cache
+
+
+  cache:
+    jcache:
+      config: 'classpath:ehcache.xml'
+#
+logging:
+  level:
+    org:
+      springframework:
+        cache: 'INFO'
+        data:
+          mongodb:
+            core:
+              MongoTemplate: 'DEBUG'
