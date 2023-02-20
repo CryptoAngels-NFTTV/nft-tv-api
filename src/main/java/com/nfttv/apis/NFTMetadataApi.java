@@ -33,6 +33,6 @@ class NFTMetadataApi {
 
     public  NftMetadataApiResource buildMetadataResource(final Nft nft) {
         final NftMetadataApiResource.QRCodeInfo pngData = qrCodeGenerator.getQRCodeImage(nft.getId().toHexString());
-        return NftMetadataApiResource.builder().qrCode(pngData).uuid(nft.getId().toHexString()).metadata(nft.getMetadata()).chain(nft.getChain()).build();
+        return NftMetadataApiResource.builder().qrCode(pngData).uuid(nft.getId().toHexString()).info(nft.getNftInfo()).build();
     }
 }

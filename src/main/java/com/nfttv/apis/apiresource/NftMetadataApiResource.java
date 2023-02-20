@@ -14,9 +14,7 @@ public class NftMetadataApiResource {
 
     private QRCodeInfo qrCode;
 
-    private String chain;
-
-    private List<String> metadata;
+    private String info;
 
     public static class QRCodeInfo {
 

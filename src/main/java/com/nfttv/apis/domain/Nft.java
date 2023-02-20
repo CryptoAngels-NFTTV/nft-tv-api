@@ -16,8 +16,6 @@ public class Nft {
     @Id
     ObjectId id;
 
-    String chain;
-
-    List<String> metadata;
+    String nftInfo;
 
 }
