@@ -22,4 +22,7 @@ logging:
       springframework:
         cache: 'INFO'
         data:
-          mongodb: 'DEBUG'
+          mongodb: 'INFO'
+    com:
+      nfttv:
+        apis: 'DEBUG'
