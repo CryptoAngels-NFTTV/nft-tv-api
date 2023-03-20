@@ -20,11 +20,18 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-devtools'
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
+
 
 	implementation 'org.apache.groovy:groovy'
 	implementation 'com.google.zxing:core:3.5.1'
 	implementation 'com.google.zxing:javase:3.5.1'
+	implementation("com.google.guava:guava:31.1-jre")
+
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+
 
 	compileOnly 'org.projectlombok:lombok:1.18.24'
 	annotationProcessor 'org.projectlombok:lombok:1.18.24'
