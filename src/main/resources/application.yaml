@@ -1,8 +1,9 @@
-
 server:
   servlet:
     context-path: '/api'
 
+auth0:
+  audience: https://api.dawn.watch/api/actuator/health
 
 spring:
   data:
@@ -10,7 +11,11 @@ spring:
       autoIndexCreation: true
       uri: mongodb://admin:bas1cPa22@localhost:27017/
       database: nft-cache
-
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://dev-8cfuc6dy5gmdhotp.us.auth0.com/
 
   cache:
     jcache:
@@ -23,6 +28,7 @@ logging:
         cache: 'INFO'
         data:
           mongodb: 'INFO'
+        security: 'DEBUG'
     com:
       nfttv:
         apis: 'DEBUG'
