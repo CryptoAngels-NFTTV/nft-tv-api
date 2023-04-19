@@ -1,4 +1,4 @@
-package com.nfttv.apis.repository;
+package com.nfttv.apis.nosql.repository;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;

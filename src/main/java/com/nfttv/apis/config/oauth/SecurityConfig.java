@@ -1,4 +1,4 @@
-package com.nfttv.apis.oauth;
+package com.nfttv.apis.config.oauth;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -16,9 +16,9 @@ import java.util.Set;
 public class SecurityConfig {
 
 
-    static final Set<String> PROTECTED_ENDPOINTS = Set.of("/playlists/**");
+    static final Set<String> PROTECTED_ENDPOINTS = Set.of("/profile/**");
 
-    static final Set<String> UNPROTECTED_ENDPOINTS = Set.of("/nftmetada/**");
+    static final Set<String> UNPROTECTED_ENDPOINTS = Set.of("/nftmetada/**", "/playlists/**");
 
     @Value("${auth0.audience}")
     private String audience;

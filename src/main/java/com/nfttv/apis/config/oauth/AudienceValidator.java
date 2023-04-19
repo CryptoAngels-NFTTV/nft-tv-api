@@ -1,4 +1,4 @@
-package com.nfttv.apis.oauth;
+package com.nfttv.apis.config.oauth;
 
 import org.springframework.security.oauth2.core.OAuth2Error;
 import org.springframework.security.oauth2.core.OAuth2TokenValidator;
