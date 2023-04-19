@@ -37,7 +37,7 @@ public abstract class BaseApi {
 
         NftTvUser nftTvUser = null;
 
-        if (JwtAuthenticationToken.class.isAssignableFrom(SecurityContextHolder.getContext().getClass())) {
+        if (JwtAuthenticationToken.class.isAssignableFrom(SecurityContextHolder.getContext().getAuthentication().getClass())) {
             JwtAuthenticationToken jwtAuthentication = (JwtAuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
             final Jwt jwt = (Jwt) jwtAuthentication.getCredentials();
             final Optional<NftTvUser> nftTvUserOptional = userRepository.findByUsername(jwt.getSubject());
