@@ -2,7 +2,6 @@ package com.nfttv.apis.services;
 
 import com.nfttv.apis.nosql.domain.Nft;
 import com.nfttv.apis.nosql.repository.NFTCacheRepository;
-import com.nfttv.apis.nosql.repository.NftQRCodeGenerator;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -19,8 +18,6 @@ public class NftService {
 
     private NFTCacheRepository nftCacheRepository;
 
-    private NftQRCodeGenerator qrCodeGenerator;
-
     public Page<Nft> filterNft(final Pageable pageable) {
         long startTime = System.currentTimeMillis();
         final Page<Nft> nfts = nftCacheRepository.findAll(pageable);
@@ -30,6 +27,6 @@ public class NftService {
     }
 
     public List<Nft> filterByIds(final Set<String> ids) {
-        return nftCacheRepository.findByIds(ids);
+        return nftCacheRepository.findByIdIn(ids);
     }
 }

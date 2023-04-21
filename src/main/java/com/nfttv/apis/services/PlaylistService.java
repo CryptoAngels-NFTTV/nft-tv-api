@@ -2,7 +2,6 @@ package com.nfttv.apis.services;
 
 import com.nfttv.apis.nosql.domain.Nft;
 import com.nfttv.apis.nosql.domain.Playlist;
-import com.nfttv.apis.nosql.repository.NFTCacheRepository;
 import com.nfttv.apis.nosql.repository.PlaylistRepository;
 import lombok.AllArgsConstructor;
 import org.bson.types.ObjectId;
@@ -20,8 +19,6 @@ public class PlaylistService {
 
     private PlaylistRepository playlistRepository;
 
-    private NFTCacheRepository nftCacheRepository;
-
     private NftService nftService;
 
     public List<Playlist> getUserPlaylist(final String user) {
@@ -37,8 +34,13 @@ public class PlaylistService {
     public Optional<Playlist> getById(final String identifier) {
         final Optional<Playlist> playlist = playlistRepository.findById(new ObjectId(identifier));
         if (playlist.isPresent() && playlist.get().getType().equals(Playlist.PlaylistType.GENERAL)) {
-            playlist.get().setItems(nftService.filterNft(Pageable.ofSize(100)).stream().map(Nft::getId).map(ObjectId::toString).collect(Collectors.toSet()));
+            playlist.get().setItems(nftService.filterNft(Pageable.ofSize(100)).get().map(Nft::getId).map(ObjectId::toString).collect(Collectors.toSet()));
         }
         return playlist;
     }
+
+    public Playlist savePlaylist(final Playlist playlist) {
+        return playlistRepository.save(playlist);
+    }
+
 }
