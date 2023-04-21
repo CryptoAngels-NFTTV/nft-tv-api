@@ -9,9 +9,6 @@ import java.util.Set;
 
 public interface NFTCacheRepository extends MongoRepository<Nft, String> {
 
-//    @Query(value = "SELECT n FROM Nft n WHERE n.id IN :ids")
-//    List<Nft> findByIds(@Param("ids") Set<String> ids);
-//
     List<Nft> findByIdIn(final Set<String> ids);
 
 
