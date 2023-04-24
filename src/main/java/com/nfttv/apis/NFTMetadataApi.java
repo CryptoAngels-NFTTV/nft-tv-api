@@ -21,13 +21,13 @@ import java.util.stream.Collectors;
 @RequestMapping("/nftmetada")
 @AllArgsConstructor
 @Slf4j
+@CrossOrigin(origins = "*", maxAge = 3600)
 class NFTMetadataApi {
 
     private NftService nftService;
 
     private NftUtils nftUtils;
 
-    @CrossOrigin(origins = "*", maxAge = 3600)
     @GetMapping
     public ResponseEntity<NftApiResource> getNFTs(@RequestParam(required = false) Integer page,
                                                   @RequestParam(required = false) Integer size) {
@@ -37,7 +37,6 @@ class NFTMetadataApi {
         return ResponseEntity.ok(NftApiResource.builder().nftMetadata(metadata).build());
     }
 
-    @CrossOrigin(origins = "*", maxAge = 3600)
     @GetMapping("/filter")
     public ResponseEntity<Page<NftMetadataApiResource>> filter(@RequestParam(required = false) Integer page,
                                                                @RequestParam(required = false) Integer size) {

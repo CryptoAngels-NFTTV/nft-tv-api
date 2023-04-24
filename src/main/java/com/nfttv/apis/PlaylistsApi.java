@@ -28,6 +28,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RequestMapping("/playlists")
 @Slf4j
 @AllArgsConstructor
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class PlaylistsApi extends BaseApi {
 
     private PlaylistService playlistService;
